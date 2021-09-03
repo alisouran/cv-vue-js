@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--secondary--color);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Alatsi', sans-serif;
+  @media screen and (max-width: 720px) {
+    font-size: 20px;
+  }
+}
+
+h1 {
+  font-size: var(--font-size--36);
+}
+
+h2 {
+  font-size: var(--font-size--28);
+}
+
+h3 {
+  font-size: var(--font-size--22);
+}
+
+h4 {
+  font-size: var(--font-size--18);
+}
+
+h5 {
+  font-size: var(--font-size--14);
+}
+
+h6 {
+  font-size: var(--font-size--10);
+}
+
+span {
+  font-size: var(--font-size--14);
+}
+
+p {
+  font-size: var(--font-size--16);
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  font-family: 'Alatsi', sans-serif;
+}
+
+.ltr {
+  direction: ltr !important;
+}
+
+.text-left-justify {
+  text-align: justify !important;
+  text-align-last: left !important;
+}
+.text-right-justify {
+  text-align: justify !important;
+  text-align-last: right !important;
+}
+
+.text-center-justify {
+  text-align: justify !important;
+  text-align-last: center !important;
+}
+
+$text-align: justify center right left unset;
+
+@each $key in $text-align {
+  .text-#{$key} {
+    text-align: #{$key} !important;
+  }
+}
+
+$display: none inline inline-block block grid table table-cell table-row flex
+  inline-flex;
+@each $key in $display {
+  .d-#{$key} {
+    display: $key !important;
+  }
+}
+
+$float: left right none;
+@each $key in $float {
+  .float-#{$key} {
+    float: $key;
+  }
+}
+
+$user-select: all auto none;
+@each $key in $user-select {
+  .user-select-#{$key} {
+    user-select: $key !important;
+  }
+}
+
+$overflow: auto hidden visible scroll;
+@each $key in $overflow {
+  .overflow-#{$key} {
+    overflow: $key !important;
+  }
+}
+
+$position: static relative absolute fixed sticky;
+@each $key in $position {
+  .position-#{$key} {
+    position: $key;
+  }
+}
+
+@each $key, $val in $width-height {
+  .w-#{$key} {
+    width: var(--width--#{$key}) !important;
+  }
+  .h-#{$key} {
+    height: var(--height--#{$key}) !important;
+  }
+  .mw-#{$key} {
+    max-width: var(--max-width--#{$key}) !important;
+  }
+  .mh-#{$key} {
+    max-height: var(--max-height--#{$key}) !important;
+  }
+}
+
+hr {
+  &.size-2 {
+    border-width: 2px;
+    border-color: var(--gray300--color);
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-style: solid;
+    overflow: hidden;
+    margin: 0px;
+  }
+  border-color: var(--gray300--color);
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-style: solid;
+  overflow: hidden;
+  margin: 0px;
+}
+
+@each $key, $val in $margin {
+  .mt-#{$key} {
+    margin-top: var(--margin--#{$key}) !important;
+  }
+  .mb-#{$key} {
+    margin-bottom: var(--margin--#{$key}) !important;
+  }
+  .ml-#{$key} {
+    margin-left: var(--margin--#{$key}) !important;
+  }
+  .mr-#{$key} {
+    margin-right: var(--margin--#{$key}) !important;
+  }
+  .pt-#{$key} {
+    padding-top: var(--padding--#{$key}) !important;
+  }
+  .pb-#{$key} {
+    padding-bottom: var(--padding--#{$key}) !important;
+  }
+  .pl-#{$key} {
+    padding-left: var(--padding--#{$key}) !important;
+  }
+  .pr-#{$key} {
+    padding-right: var(--padding--#{$key}) !important;
+  }
+}
+
+@each $key, $val in $font-sizes {
+  .fs-#{$key} {
+    font-size: #{$val};
+  }
+}
+
+@each $val in $font-weight {
+  .fw-#{$val} {
+    font-weight: #{$val};
+  }
+}
+
+$align-items: normal stretch center start end flex-start flex-end baseline
+  inherit initial revert unset;
+
+@each $val in $align-items {
+  .align-#{$val} {
+    align-items: #{$val} !important;
+  }
+}
+
+$justify-content: center start flex-start flex-end left right normal
+  space-between space-around space-evenly stretch;
+
+@each $val in $justify-content {
+  .justify-content-#{$val} {
+    justify-content: #{$val} !important;
+  }
+}
+
+.flex-direction-column{
+  flex-direction: column;
+  &--reverse{
+    flex-direction: column-reverse;
+  }
+}
+
+.flex-direction-row{
+  flex-direction: row;
+  &--reverse{
+    flex-direction: row-reverse;
+  }
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}

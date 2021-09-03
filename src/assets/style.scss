@@ -1,0 +1,127 @@
+@import './styles/reset-css';
+@import './styles/variables';
+@import './styles/general';
+@import './styles/layouts';
+
+body {
+  background-color: var(--primary--color);
+  overflow-x: hidden;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-weight: bold;
+  border-radius: 30px;
+  border: 2px solid var(--secondary--color);
+  font-size: 16px;
+  padding: 4px 18px;
+  color: var(--secondary--color);
+  font-family: 'Alatsi', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: var(--secondary--color);
+    color: var(--primary--color);
+  }
+  &:disabled {
+    opacity: 0.6;
+  }
+  &.quiet {
+    border: none;
+    &:hover {
+      background-color: transparent;
+    }
+    &:active {
+      background-color: transparent;
+    }
+  }
+}
+
+.icon-btn {
+  border-radius: 4px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.8s ease;
+  transition-delay: 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.tab-bar {
+  @media screen and (max-width: 414px) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 40px;
+  }
+  @media screen and (max-width: 375px) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 40px;
+  }
+  &--item {
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.5s ease-in-out;
+    cursor: pointer;
+    @media screen and (max-width: 375px) {
+      font-size: 0.9em;
+    }
+    @media screen and (max-width: 320px) {
+      font-size: 0.8em;
+    }
+  }
+}
+div.active,
+h4.active {
+  border-bottom: 3px solid var(--secondary--color);
+  padding-bottom: 4px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--secondary--color) !important;
+  box-shadow: 0 0 0 30px var(--primary--color) inset !important;
+  color: -internal-light-dark-color(
+    var(--primary--color),
+    var(--secondary--color)
+  ) !important;
+}
+
+.hidden-mobile {
+  @media screen and (min-width: 720px) {
+    display: none !important;
+  }
+}
+
+.hidden-desktop {
+  @media screen and (max-width: 720px) {
+    display: none !important;
+  }
+}

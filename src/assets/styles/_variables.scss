@@ -1,0 +1,71 @@
+$font-sizes: (
+  '10': 10px,
+  '11': 11px,
+  '12': 12px,
+  '14': 14px,
+  '16': 16px,
+  '18': 18px,
+  '22': 22px,
+  '24': 24px,
+  '28': 28px,
+  '36': 36px,
+);
+$margin: (
+  '16': 16px,
+  '12': 12px,
+  '24': 24px,
+  '36': 36px,
+  '8': 8px,
+  '6': 6px,
+  '0': 0px,
+);
+
+$font-weight: bold normal 100 200 600 900;
+
+$width-height: (
+  '25': 25%,
+  '50': 50%,
+  '75': 75%,
+  '100': 100%,
+  'auto': auto,
+);
+
+:root {
+  --primary--color: #0b0e31;
+  --secondary--color: #ffffff;
+  --react--color: #00d8ff;
+  --next--color: #000000;
+  --vue--color: #42b883;
+  --javascript--color: #f7df1e;
+  --node--color: #215732;
+  --mongo--color: #589636;
+  --express--color: #333333;
+  --react-native--color: #00d8ff;
+  --flutter--color: #3fa9f5;
+  --drawer--color: #303F9F;
+
+  @each $key, $val in $font-sizes {
+    --font-size--#{$key}: #{$val};
+  }
+  @each $key in $font-weight {
+    --font-weight--#{$key}: #{$key};
+  }
+  @each $key, $val in $margin {
+    --margin--#{$key}: #{$val};
+  }
+  @each $key, $val in $margin {
+    --padding--#{$key}: #{$val};
+  }
+  @each $key, $val in $width-height {
+    --height--#{$key}: #{$val};
+  }
+  @each $key, $val in $width-height {
+    --width--#{$key}: #{$val};
+  }
+  @each $key, $val in $width-height {
+    --max-height--#{$key}: #{$val};
+  }
+  @each $key, $val in $width-height {
+    --max-width--#{$key}: #{$val};
+  }
+}
