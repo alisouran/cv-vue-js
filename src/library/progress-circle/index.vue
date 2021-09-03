@@ -6,7 +6,13 @@
     <div
       class="cont"
       :data-pct="expanded ? title : notExpandedTitle"
-      :data-title="expanded ? dataPct + '%' : notExpandedPct"
+      :data-title="
+        expanded
+          ? useLevels
+            ? levels[dataPct - 1]
+            : dataPct + '%'
+          : notExpandedPct
+      "
       :data-ml="`-${size / 2}px`"
       :style="{
         ...styledObject,
@@ -49,7 +55,9 @@
       class="cont"
       :class="expanded ? '' : 'cont--disable'"
       :data-pct="obj.title"
-      :data-title="getDataPtc(obj.negative, obj.max, obj.value) + '%'"
+      :data-title="useLevels
+            ? levels[getDataPtc(obj.negative, obj.max, obj.value) - 1]
+            : getDataPtc(obj.negative, obj.max, obj.value) + '%'"
       :data-ml="mobile"
       :style="{
         ...styledObject,
@@ -126,6 +134,18 @@ export default defineComponent({
     };
   },
   props: {
+    step: {
+      type: Number,
+      default: 5,
+    },
+    levels: {
+      type: Array,
+      default: ['Starter', 'Junior', 'Mid-Level', 'Expert', 'Senior'],
+    },
+    useLevels: {
+      type: Boolean,
+      default: true,
+    },
     mobile: {
       type: Boolean,
     },
@@ -135,11 +155,11 @@ export default defineComponent({
     },
     value: {
       type: Number,
-      default: 95,
+      default: 5,
     },
     max: {
       type: Number,
-      default: 100,
+      default: 5,
     },
     min: {
       type: Number,
@@ -236,7 +256,7 @@ export default defineComponent({
         main.push(item.value);
       });
       let sum = main.reduce((a, b) => a + b, 0);
-      this.valueStorage = this.valueStorage + (100 * num) / sum;
+      this.valueStorage = this.valueStorage + (this.step * num) / sum;
       return this.valueStorage;
     },
   },

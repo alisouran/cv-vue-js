@@ -100,6 +100,9 @@
             :expanded="active === 'frontend'"
             :size="progressSize"
             :mobile="mobile"
+            :value="javascriptData.value"
+            :min="javascriptData.min"
+            :max="javascriptData.max"
           />
         </div>
         <div
@@ -121,6 +124,9 @@
             :expanded="active === 'backend'"
             :size="progressSize"
             :mobile="mobile"
+            :value="javascriptData.value"
+            :min="javascriptData.min"
+            :max="javascriptData.max"
           />
         </div>
         <div
@@ -142,6 +148,9 @@
             :expanded="active === 'android'"
             :size="progressSize"
             :mobile="mobile"
+            :value="javascriptData.value"
+            :min="javascriptData.min"
+            :max="javascriptData.max"
           />
         </div>
       </div>
@@ -184,10 +193,15 @@ export default defineComponent({
       active: 'skills',
       progressSize: 160,
       show: false,
+      javascriptData: {
+        value: 5,
+        max: 5,
+        min: 0,
+      },
       frontEndData: [
         {
-          value: 90,
-          max: 100,
+          value: 5,
+          max: 5,
           min: 0,
           title: 'React',
           completeTitle: 'Complete Title',
@@ -195,8 +209,8 @@ export default defineComponent({
           color: 'react',
         },
         {
-          value: 90,
-          max: 100,
+          value: 5,
+          max: 5,
           min: 0,
           title: 'Next',
           completeTitle: 'Complete Title',
@@ -204,8 +218,8 @@ export default defineComponent({
           color: 'next',
         },
         {
-          value: 50,
-          max: 100,
+          value: 3,
+          max: 5,
           min: 0,
           title: 'Vue',
           completeTitle: 'Complete Title',
@@ -215,8 +229,8 @@ export default defineComponent({
       ],
       backendData: [
         {
-          value: 70,
-          max: 100,
+          value: 3,
+          max: 5,
           min: 0,
           title: 'Node',
           completeTitle: 'Complete Title',
@@ -224,8 +238,8 @@ export default defineComponent({
           color: 'node',
         },
         {
-          value: 50,
-          max: 100,
+          value: 2,
+          max: 5,
           min: 0,
           title: 'MongoDB',
           completeTitle: 'Complete Title',
@@ -233,8 +247,8 @@ export default defineComponent({
           color: 'mongo',
         },
         {
-          value: 50,
-          max: 100,
+          value: 2,
+          max: 5,
           min: 0,
           title: 'Express',
           completeTitle: 'Complete Title',
@@ -244,8 +258,8 @@ export default defineComponent({
       ],
       androidData: [
         {
-          value: 70,
-          max: 100,
+          value: 3,
+          max: 5,
           min: 0,
           title: 'ReactNative',
           completeTitle: 'Complete Title',
@@ -253,8 +267,8 @@ export default defineComponent({
           color: 'react-native',
         },
         {
-          value: 20,
-          max: 100,
+          value: 3,
+          max: 5,
           min: 0,
           title: 'Flutter',
           completeTitle: 'Complete Title',
