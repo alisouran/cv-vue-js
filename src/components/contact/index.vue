@@ -82,7 +82,7 @@
                 @focus="focusedInput('message')"
                 @blur="blurInput()"
                 class="w-100 input"
-                rows="11"
+                rows="9"
                 @input="setMessage($event)"
                 name="message"
                 v-model="message"
@@ -201,7 +201,7 @@
                 @focus="focusedInput('message')"
                 @blur="blurInput()"
                 class="w-100 input"
-                rows="9"
+                rows="7"
                 required
                 name="order"
                 v-model="message"

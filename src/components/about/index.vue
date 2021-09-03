@@ -29,34 +29,16 @@
           SKILLS
         </div>
         <div
-          @click="activateItem('frontend')"
+          @click="activateItem(skill.slug)"
           class=" d-block tab-bar--item"
+          v-for="skill in mainSkills"
+          :key="skill.slug"
           :class="[
-            active === 'frontend' ? 'active' : '',
+            active === skill.slug ? 'active' : '',
             mobile ? '' : 'ml-24 ',
           ]"
         >
-          FRONT-END
-        </div>
-        <div
-          @click="activateItem('backend')"
-          class="d-block tab-bar--item"
-          :class="[
-            active === 'backend' ? 'active' : '',
-            mobile ? '' : 'ml-24 ',
-          ]"
-        >
-          BACK-END
-        </div>
-        <div
-          @click="activateItem('android')"
-          class="d-block tab-bar--item"
-          :class="[
-            active === 'android' ? 'active' : '',
-            mobile ? '' : 'ml-24 ',
-          ]"
-        >
-          ANDROID
+          {{ skill.title.toUpperCase() }}
         </div>
       </div>
       <div
@@ -82,75 +64,30 @@
         ]"
       >
         <div
-          v-show="active !== 'backend' && active !== 'android'"
+          v-for="skill in mainSkills"
+          v-show="getSlugs(skill.slug)"
+          :key="skill.title"
           class="col-md-3 col-lg-3 col-xl-3 col-sm-6 col-xs-6"
           :style="{
             width: mobile
               ? `${
-                  active === 'frontend' ? progressSize * 2 + 20 : progressSize
+                  active === skill.slug ? progressSize * 2 + 20 : progressSize
                 }px`
               : '',
-            margin: mobile ? (active === 'frontend' ? '0 auto' : '') : '',
+            margin: mobile ? (active === skill.slug ? '0 auto' : '') : '',
           }"
         >
           <ProgressCircle
-            :data="frontEndData"
-            notExpandedTitle="Front-End"
-            notExpandedPct="4 YEARS"
-            :expanded="active === 'frontend'"
+            :data="data[skill.slug]"
+            :notExpandedTitle="skill.title"
+            :notExpandedPct="skill.subtitle"
+            :expanded="active === skill.slug"
             :size="progressSize"
             :mobile="mobile"
-            :value="javascriptData.value"
-            :min="javascriptData.min"
-            :max="javascriptData.max"
-          />
-        </div>
-        <div
-          v-show="active !== 'frontend' && active !== 'android'"
-          class="col-md-3 col-lg-3 col-xl-3 col-sm-6 col-xs-6"
-          :style="{
-            width: mobile
-              ? `${
-                  active === 'backend' ? progressSize * 2 + 20 : progressSize
-                }px`
-              : '',
-            margin: mobile ? (active === 'backend' ? '0 auto' : '') : '',
-          }"
-        >
-          <ProgressCircle
-            notExpandedTitle="Back-End"
-            notExpandedPct="2 YEARS"
-            :data="backendData"
-            :expanded="active === 'backend'"
-            :size="progressSize"
-            :mobile="mobile"
-            :value="javascriptData.value"
-            :min="javascriptData.min"
-            :max="javascriptData.max"
-          />
-        </div>
-        <div
-          v-show="active !== 'frontend' && active !== 'backend'"
-          class="col-md-3 col-lg-3 col-xl-3 col-sm-6 col-xs-6"
-          :style="{
-            width: mobile
-              ? `${
-                  active === 'android' ? progressSize * 2 + 20 : progressSize
-                }px`
-              : '',
-            margin: mobile ? (active === 'android' ? '0 auto' : '') : '',
-          }"
-        >
-          <ProgressCircle
-            notExpandedTitle="Android"
-            notExpandedPct="1 YEAR"
-            :data="androidData"
-            :expanded="active === 'android'"
-            :size="progressSize"
-            :mobile="mobile"
-            :value="javascriptData.value"
-            :min="javascriptData.min"
-            :max="javascriptData.max"
+            :value="mainSkill.value"
+            :min="mainSkill.min"
+            :max="mainSkill.max"
+            :title="mainSkill.title"
           />
         </div>
       </div>
@@ -160,18 +97,12 @@
         v-if="!mobile"
       >
         <h4 class="tab-bar--item active">WHO AM I?</h4>
-        <p class="about-me-desc mt-8">
-          I am a computer science graduated from University of Kashan.
-        </p>
-        <p class="about-me-desc mt-8">
-          I have been learning different technologies for nearly five years and
-          have been working as a web developer in this field for four years; I
-          am a React Native starter. :)
-        </p>
-        <p class="about-me-desc mt-8">
-          I used to work as a freelancer, but now I'm working as a frontend
-          developer at <img src="/img/icons/virgool.svg" /> Virgool.
-        </p>
+        <p
+          v-for="(p, i) in whoAmI"
+          v-html="p"
+          :key="i"
+          class="about-me-desc mt-8"
+        ></p>
       </div>
     </div>
   </transition>
@@ -181,6 +112,7 @@
 import { defineComponent } from 'vue';
 import { ProgressCircle } from '@/library';
 import mqMixin from '@/mixins/mqMixin';
+import json from '@/config.json';
 
 export default defineComponent({
   name: 'AboutTool',
@@ -193,96 +125,48 @@ export default defineComponent({
       active: 'skills',
       progressSize: 160,
       show: false,
-      javascriptData: {
-        value: 4,
-        max: 5,
-        min: 0,
+      mainSkill: {
+        value: json['main-skill'].value,
+        max: json['main-skill'].max,
+        min: json['main-skill'].min,
+        title: json['main-skill'].title,
       },
-      frontEndData: [
-        {
-          value: 4,
-          max: 5,
-          min: 0,
-          title: 'React',
-          completeTitle: 'Complete Title',
-          negative: false,
-          color: 'react',
-        },
-        {
-          value: 4,
-          max: 5,
-          min: 0,
-          title: 'Next',
-          completeTitle: 'Complete Title',
-          negative: false,
-          color: 'next',
-        },
-        {
-          value: 3,
-          max: 5,
-          min: 0,
-          title: 'Vue',
-          completeTitle: 'Complete Title',
-          negative: false,
-          color: 'vue',
-        },
-      ],
-      backendData: [
-        {
-          value: 2,
-          max: 5,
-          min: 0,
-          title: 'Node',
-          completeTitle: 'Complete Title',
-          negative: false,
-          color: 'node',
-        },
-        {
-          value: 2,
-          max: 5,
-          min: 0,
-          title: 'MongoDB',
-          completeTitle: 'Complete Title',
-          negative: false,
-          color: 'mongo',
-        },
-        {
-          value: 2,
-          max: 5,
-          min: 0,
-          title: 'Express',
-          completeTitle: 'Complete Title',
-          negative: false,
-          color: 'express',
-        },
-      ],
-      androidData: [
-        {
-          value: 2,
-          max: 5,
-          min: 0,
-          title: 'ReactNative',
-          completeTitle: 'Complete Title',
-          negative: false,
-          color: 'react-native',
-        },
-        {
-          value: 1,
-          max: 5,
-          min: 0,
-          title: 'Flutter',
-          completeTitle: 'Complete Title',
-          negative: false,
-          color: 'flutter',
-        },
-      ],
+      mainSkills: [...Object.values(json['main-skills'])],
+      whoAmI: [...Object.values(json['who-am-i'].description)],
+      data: {
+        frontend: [
+          ...Object.values(json.skills)
+            .map((item) => (item.type === 'frontend' ? item : ''))
+            .filter((o) => o !== ''),
+        ],
+        backend: [
+          ...Object.values(json.skills)
+            .map((item) => (item.type === 'backend' ? item : ''))
+            .filter((o) => o !== ''),
+        ],
+        android: [
+          ...Object.values(json.skills)
+            .map((item) => (item.type === 'android' ? item : ''))
+            .filter((o) => o !== ''),
+        ],
+      },
     };
   },
   methods: {
     activateItem(item: string) {
       this.active = item;
     },
+    getSlugs(slug: string) {
+      if (slug === 'frontend') {
+        return this.active !== 'backend' && this.active !== 'android';
+      } else if (slug === 'backend') {
+        return this.active !== 'frontend' && this.active !== 'android';
+      } else if (slug === 'android') {
+        return this.active !== 'backend' && this.active !== 'frontend';
+      }
+    },
   },
+  computed: {},
   mounted() {
     this.show = true;
     if (this.windowWidth < 340) {

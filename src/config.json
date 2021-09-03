@@ -3,5 +3,121 @@
     "first": "Alireza",
     "last": "Souran"
   },
-  "picture": "img/profile.png"
+  "picture": "img/profile.png",
+  "main-skill": {
+    "value": 4,
+    "max": 5,
+    "min": 0,
+    "title": "JavaScript",
+    "completeTitle": "Complete Title",
+    "negative": false,
+    "color": "javascript",
+    "type": "main"
+  },
+  "skills": {
+    "react": {
+      "value": 4,
+      "max": 5,
+      "min": 0,
+      "title": "React",
+      "completeTitle": "Complete Title",
+      "negative": false,
+      "color": "react",
+      "type": "frontend"
+    },
+    "next": {
+      "value": 4,
+      "max": 5,
+      "min": 0,
+      "title": "Next",
+      "completeTitle": "Complete Title",
+      "negative": false,
+      "color": "next",
+      "type": "frontend"
+    },
+    "vue": {
+      "value": 3,
+      "max": 5,
+      "min": 0,
+      "title": "Vue",
+      "completeTitle": "Complete Title",
+      "negative": false,
+      "color": "vue",
+      "type": "frontend"
+    },
+    "node": {
+      "value": 3,
+      "max": 5,
+      "min": 0,
+      "title": "Node",
+      "completeTitle": "Complete Title",
+      "negative": false,
+      "color": "node",
+      "type": "backend"
+    },
+    "mongo": {
+      "value": 2,
+      "max": 5,
+      "min": 0,
+      "title": "MongoDB",
+      "completeTitle": "Complete Title",
+      "negative": false,
+      "color": "mongo",
+      "type": "backend"
+    },
+    "express": {
+      "value": 2,
+      "max": 5,
+      "min": 0,
+      "title": "Express",
+      "completeTitle": "Complete Title",
+      "negative": false,
+      "color": "express",
+      "type": "backend"
+    },
+    "react-native": {
+      "value": 3,
+      "max": 5,
+      "min": 0,
+      "title": "ReactNative",
+      "completeTitle": "Complete Title",
+      "negative": false,
+      "color": "react-native",
+      "type": "android"
+    },
+    "flutter": {
+      "value": 1,
+      "max": 5,
+      "min": 0,
+      "title": "Flutter",
+      "completeTitle": "Complete Title",
+      "negative": false,
+      "color": "flutter",
+      "type": "android"
+    }
+  },
+  "main-skills": {
+    "frontend": {
+      "title": "Front-End",
+      "subtitle": "4 YEARS",
+      "slug": "frontend"
+    },
+    "backend": {
+      "title": "Back-End",
+      "subtitle": "4 YEARS",
+      "slug": "backend"
+    },
+    "android": {
+      "title": "Android",
+      "subtitle": "4 YEARS",
+      "slug": "android"
+    }
+  },
+  "who-am-i": {
+    "description": {
+      "paragraph_1": "I am a computer science graduated from University of Kashan.",
+      "paragraph_2": "I have been learning different technologies for nearly five years and have been working as a web developer in this field for four years; I am a React Native starter. :)",
+      "paragraph_3": "I used to work as a freelancer, but now I'm working as a frontend developer at <img src='/img/icons/virgool.svg' /> Virgool."
+    }
+  }
 }
