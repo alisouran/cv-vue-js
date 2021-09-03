@@ -1,4 +1,5 @@
-# portfolio
+# CV Template - Vue js
+
 
 ## Project setup
 ```
