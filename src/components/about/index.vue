@@ -96,7 +96,7 @@
           <ProgressCircle
             :data="frontEndData"
             notExpandedTitle="Front-End"
-            notExpandedPct="45360 HRS"
+            notExpandedPct="4 YEARS"
             :expanded="active === 'frontend'"
             :size="progressSize"
             :mobile="mobile"
@@ -119,7 +119,7 @@
         >
           <ProgressCircle
             notExpandedTitle="Back-End"
-            notExpandedPct="32354 HRS"
+            notExpandedPct="2 YEARS"
             :data="backendData"
             :expanded="active === 'backend'"
             :size="progressSize"
@@ -143,7 +143,7 @@
         >
           <ProgressCircle
             notExpandedTitle="Android"
-            notExpandedPct="18564 HRS"
+            notExpandedPct="1 YEAR"
             :data="androidData"
             :expanded="active === 'android'"
             :size="progressSize"
@@ -194,13 +194,13 @@ export default defineComponent({
       progressSize: 160,
       show: false,
       javascriptData: {
-        value: 5,
+        value: 4,
         max: 5,
         min: 0,
       },
       frontEndData: [
         {
-          value: 5,
+          value: 4,
           max: 5,
           min: 0,
           title: 'React',
@@ -209,7 +209,7 @@ export default defineComponent({
           color: 'react',
         },
         {
-          value: 5,
+          value: 4,
           max: 5,
           min: 0,
           title: 'Next',
@@ -229,7 +229,7 @@ export default defineComponent({
       ],
       backendData: [
         {
-          value: 3,
+          value: 2,
           max: 5,
           min: 0,
           title: 'Node',
@@ -258,7 +258,7 @@ export default defineComponent({
       ],
       androidData: [
         {
-          value: 3,
+          value: 2,
           max: 5,
           min: 0,
           title: 'ReactNative',
@@ -267,7 +267,7 @@ export default defineComponent({
           color: 'react-native',
         },
         {
-          value: 3,
+          value: 1,
           max: 5,
           min: 0,
           title: 'Flutter',
