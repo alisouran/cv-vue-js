@@ -83,7 +83,7 @@
       >
         <div
           v-show="active !== 'backend' && active !== 'android'"
-          class="col-md-3 col-lg-3 col-sm-6 col-xs-6"
+          class="col-md-3 col-lg-3 col-xl-3 col-sm-6 col-xs-6"
           :style="{
             width: mobile
               ? `${
@@ -104,7 +104,7 @@
         </div>
         <div
           v-show="active !== 'frontend' && active !== 'android'"
-          class="col-md-3 col-lg-3 col-sm-6 col-xs-6"
+          class="col-md-3 col-lg-3 col-xl-3 col-sm-6 col-xs-6"
           :style="{
             width: mobile
               ? `${
@@ -125,7 +125,7 @@
         </div>
         <div
           v-show="active !== 'frontend' && active !== 'backend'"
-          class="col-md-3 col-lg-3 col-sm-6 col-xs-6"
+          class="col-md-3 col-lg-3 col-xl-3 col-sm-6 col-xs-6"
           :style="{
             width: mobile
               ? `${

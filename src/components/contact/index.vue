@@ -114,7 +114,7 @@
       </form>
       <form @submit.prevent="proccesingOrder">
         <div v-if="active === 'order'" class="row mt-36">
-          <div class="col-lg-6 col-md-6 gx-2">
+          <div class="col-lg-6 col-xl-6 col-md-6 gx-2">
             <div class="input--container w-100">
               <input
                 @focus="focusedInput('name')"
@@ -147,7 +147,7 @@
               >
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 gx-2">
+          <div class="col-lg-6 col-xl-6 col-md-6 gx-2">
             <div class="input--container w-100">
               <input
                 @focus="focusedInput('email')"
@@ -171,7 +171,7 @@
               </span>
             </div>
           </div>
-          <div class="col-lg-12 col-md-12 mt-36 gx-2">
+          <div class="col-lg-12 col-xl-12 col-md-12 mt-36 gx-2">
             <div class="input--container w-100">
               <input
                 @focus="focusedInput('company')"
@@ -195,7 +195,7 @@
               </span>
             </div>
           </div>
-          <div class="col-lg-12 col-md-12 gx-2 mt-36">
+          <div class="col-lg-12 col-xl-12 col-md-12 gx-2 mt-36">
             <div class="input--container w-100">
               <textarea
                 @focus="focusedInput('message')"
@@ -219,7 +219,7 @@
               </span>
             </div>
           </div>
-          <div class="col-lg-12 col-md-12">
+          <div class="col-lg-12 col-xl-12 col-md-12">
             <button
               :disabled="disableBtn"
               type="submit"
